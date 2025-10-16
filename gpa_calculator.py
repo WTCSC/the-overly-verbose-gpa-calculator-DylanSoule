@@ -23,17 +23,17 @@ def calc_gpa(type):
     class_in_sem2 = len(classes[1])
 
     if type == 'sem1' or type == 'all':
-        for i in range(class_in_sem1-1):
+        for i in range(class_in_sem1):
             total += classes[0][i][1]
-        if type == 'sem2' and class_in_sem1 != 0:
-            return total/class_in_sem1
+        if type == 'sem1' and class_in_sem1 != 0:
+            return round(total/class_in_sem1,2)
     if type == 'sem2' or type == 'all':
-        for i in range(class_in_sem2-1):
+        for i in range(class_in_sem2):
             total += classes[1][i][1]
         if type == 'sem2' and class_in_sem2 != 0:
-            return total/class_in_sem2
-    if type == 'all' and class_in_sem1 != 0 and class_in_sem2 != 0:
-        return total/(class_in_sem1+class_in_sem2)
+            return round(total/class_in_sem2,2)
+    if type == 'all' and (class_in_sem1 != 0 or class_in_sem2 != 0):
+        return round(total/(class_in_sem1+class_in_sem2),2)
     return '0, as you have no classes in that part of the year'
 
 while True:
@@ -65,8 +65,23 @@ while True:
         else:
             input("Wrong Input(Press enter to re-input) ")
             continue
-        if input("\nWould you like to calculate another type(yes/no) ").lower() == 'yes':
+        done = input("\nWould you like to calculate another type(yes/no) ").lower()
+        if done == 'yes':
             continue
-        else:
+        elif done == 'no':
             break
+        else:
+            while True:
+                done = input("Please only enter yes or no").lower()
+                if done == 'yes':
+                    break
+                elif done =='no':
+                    break
+            if done == 'yes':
+                continue
+        break
+
+
     
+    while True:
+        type = input("\nWould you like to analyze for improvement(yes/no)").lower()
