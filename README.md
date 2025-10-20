@@ -114,4 +114,4 @@ Would you like to analyze a different GPA or changed GPA(yes/no) no
 Thanks for working on improving your GPA with me, hopefully you come again soon with higher grades
 ```
 ### Program Flow
-![Flow Chart]()
+![Flow Chart](gpa_calc_flow_chart.png)
